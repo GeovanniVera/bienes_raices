@@ -1,0 +1,45 @@
+@include tablet{
+    .container-adds{
+        @include grid(3,2rem);
+    }
+}
+.adds{
+    background-color:lighten($gris,5) ;
+    border: 1px solid darken($gris,10);
+}
+
+.content-adds{
+    padding: 1rem;
+    .price{
+        color: $verde;
+        font-weight: $bold;
+        font-size: 3rem;
+    }
+    h3,p{
+        margin: 0;
+    }
+    p{
+        font-size: 2rem;
+    }
+    
+}
+.icons-characteristics{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    
+    li{
+        flex: 1;
+        display: flex;
+        img{
+            flex: 0 0 3rem;
+            margin-right:1rem;
+        }
+        p{
+            font-weight: $black;
+            
+        }
+    }
+}
