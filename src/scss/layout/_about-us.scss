@@ -1,43 +1,26 @@
-
-.about-us {
-    display: flex;
-   flex-direction: column;
-    gap: 2rem;
-
-    .img-about {
-        width: 100%;
+@include tablet {
+    .about-us {
+        @include grid(2,2rem);
     }
-
-    @include tablet{
-        .img-about{
-           
-        }
-        .text-about {
-          
-        }
-    }
-    .text-about {
-        width: 100%;
-        p:first-of-type{
-            margin: 0;
-        }
-        span{
-            font-weight: $black;
-            margin: 0;
-            
-        }
-        p{
-            
-        }
-
-
-        
-    }
-    
 }
+.text-about {
+    width: 100%;
 
-@include tablet{
-    .about-us{
-        flex-direction: row;
+    p:first-of-type {
+        margin: 2rem;
     }
+
+    @include tablet {
+        p:first-of-type {
+            margin: 0rem;
+        }
+    
+    }
+    span {
+        font-weight: $black;
+        margin: 0;
+        font-size: 2.2rem;
+    }
+
+
 }
