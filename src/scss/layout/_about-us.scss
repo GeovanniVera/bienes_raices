@@ -1,0 +1,43 @@
+
+.about-us {
+    display: flex;
+   flex-direction: column;
+    gap: 2rem;
+
+    .img-about {
+        width: 100%;
+    }
+
+    @include tablet{
+        .img-about{
+           
+        }
+        .text-about {
+          
+        }
+    }
+    .text-about {
+        width: 100%;
+        p:first-of-type{
+            margin: 0;
+        }
+        span{
+            font-weight: $black;
+            margin: 0;
+            
+        }
+        p{
+            
+        }
+
+
+        
+    }
+    
+}
+
+@include tablet{
+    .about-us{
+        flex-direction: row;
+    }
+}
