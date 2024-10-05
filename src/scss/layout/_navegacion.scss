@@ -1,11 +1,35 @@
+.right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include tablet{
+        align-items: flex-end;
+    }
+    .dark-mode-btn{
+        margin-top: 3rem;
+        margin-bottom:3rem ;
+        width: 3rem;
+        filter: invert(100%);
+        &:hover{
+            cursor: pointer;
+        }
+        @include tablet{
+            margin-top: 0;
+        }
+    }
+
+
+}
 .bar{
     display: flex;
     flex-direction: column;
     align-items: center;
+    // align-items: flex-end;
     padding-top: 3rem;
     @include tablet{
         flex-direction: row;
         justify-content: space-between;
+        align-items: flex-end;
     }
 }
 .navigation-bar{
@@ -13,10 +37,11 @@
     opacity: 0;
     visibility: hidden;
     @include tablet{
+        height: auto;
         opacity: 1;
         visibility: visible;
         display: flex;
-        align-items: center;
+        flex-direction: row;
     }
     a{
         color: $blanco;
@@ -25,18 +50,14 @@
         display: inline-block;
         text-align: center;
         width: 100%;
+        transition: color 0.5s ease-in-out;
         &:hover{
-            background-color: $blanco;
-            color: $grisOscuro;
+            color: $verde;
         }
         @include tablet{
             margin-right: 2rem;
             font-size: 1.8rem;
             border: none;
-            &:hover{
-                background-color: $grisOscuro;
-                color: $blanco;
-            }
             &:last-of-type{
                 margin-right: 0;
             }

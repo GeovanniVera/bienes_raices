@@ -4,19 +4,19 @@
     margin-bottom: 0;
     .footer-container{
         padding-top: calc($separacion / 2);
+        .navigation-bar{
+            visibility: visible;
+            opacity: 1;
+            height: auto;
+            @include tablet{
+                width: 30%;
+                
+            }
+        }
     }
 
     .copyright{
         color: $blanco;
         text-align: center;
-    }
-}
-.footer-container{
-    .navigation-bar{
-        display: flex;
-        flex-direction: column;
-        visibility: visible;
-        opacity: 1;
-        height: auto;
     }
 }
