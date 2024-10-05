@@ -31,19 +31,19 @@ function css() {
 
 function javascript() {
     return src(paths.js)
-      .pipe(sourcemaps.init())
-      .pipe(concat('bundle.js'))
-      .pipe(terser())
-      .pipe(sourcemaps.write('.'))
-      .pipe(rename({ suffix: '.min' }))
-      .pipe(dest('./build/js'))
+        .pipe(sourcemaps.init())
+        .pipe(concat('bundle.js'))
+        .pipe(terser())
+        .pipe(sourcemaps.write('.'))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(dest('./build/js'))
 }
 
 function imagenes() {
     return src(paths.imagenes)
         .pipe(cache(imagemin({ optimizationLevel: 3 })))
         .pipe(dest('build/img'))
-        .pipe(notify('Imagen Completada' ));
+        .pipe(notify('Imagen Completada'));
 }
 
 function versionWebp() {
