@@ -22,10 +22,10 @@
                     <img src="build/img/dark-mode.svg" alt="dark button" class="dark-mode-btn">
                     <!-- Navigation Bar-->
                     <nav class="navigation-bar">
-                        <a href="aboutus.html">Nosotros</a>
-                        <a href="advertisements.html">Anuncios</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="contact.html">Contacto</a>
+                        <a href="aboutus.php">Nosotros</a>
+                        <a href="advertisements.php">Anuncios</a>
+                        <a href="blog.php">Blog</a>
+                        <a href="contact.php">Contacto</a>
                     </nav>
                     <!-- Navigation Bar End -->
                 </div>
@@ -96,7 +96,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a href="anuncio.html" class="btn btn-orange">Ver Propiedad</a>
+                    <a href="anuncio.php" class="btn btn-orange">Ver Propiedad</a>
                 </div>
             </div>
             <!-- Fin de la card -->
@@ -128,7 +128,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a href="anuncio.html" class="btn btn-orange">Ver Propiedad</a>
+                    <a href="anuncio.php" class="btn btn-orange">Ver Propiedad</a>
                 </div>
             </div>
             <!-- Fin de la card -->
@@ -160,21 +160,21 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a href="anuncio.html" class="btn btn-orange">Ver Propiedad</a>
+                    <a href="anuncio.php" class="btn btn-orange">Ver Propiedad</a>
                 </div>
             </div>
             <!-- Fin de la card -->
         </div>
         <!-- Contenedor de anuncios -->
         <div class="align-right">
-            <a href="advertisements.html" class="btn-green-inline">Ver todos</a>
+            <a href="advertisements.php" class="btn-green-inline">Ver todos</a>
         </div>
         <!-- Contenedor de boton -->
     </section>
     <section class="img-contact">
         <h2>Encuentra la casa de tus sueños</h2>
         <p>Llena el formulario de contacto y un asesor se pondra en contacto contigo a la brevedad!</p>
-        <a href="contact.html" class="btn-orange-inline">Contactanos</a>
+        <a href="contact.php" class="btn-orange-inline">Contactanos</a>
     </section>
     <!-- Testimoniales -->
     <div class="container section bottom-section">
@@ -189,7 +189,7 @@
                     </picture>
                 </div>
                 <div class="into-text">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Terraza en el techo de tu casa</h4>
                         <p class="meta-information">Escrto el: <span>20-10-2024</span> por <span>Admin</span></p>
                         <p>Consejo para onstruir en el techo de tu casa con los mejores materiales y ahorrando dinero</p>
@@ -207,7 +207,7 @@
                     </picture>
                 </div>
                 <div class="into-text">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Guia para la decoracion de tu hogar</h4>
                         <p class="meta-information">Escrto el: <span>20-10-2024</span> por <span>Admin</span></p>
                         <p>Maximisa el espacio en tu hogar con esta guia. Aprende a combinar muebles y colores para darle vida a tu espacio</p>
@@ -231,10 +231,10 @@
         <div class="container footer-container">
             <!-- Navigation Bar-->
             <nav class="navigation-bar">
-                <a href="aboutus.html">Nosotros</a>
-                <a href="advertisements.html">Anuncios</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contacto</a>
+                <a href="aboutus.php">Nosotros</a>
+                <a href="advertisements.php">Anuncios</a>
+                <a href="blog.php">Blog</a>
+                <a href="contact.php">Contacto</a>
             </nav>
             <!-- Navigation Bar End -->
         </div>
