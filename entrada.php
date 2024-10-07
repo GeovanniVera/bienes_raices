@@ -22,10 +22,10 @@
                     <img src="build/img/dark-mode.svg" alt="dark button" class="dark-mode-btn">
                     <!-- Navigation Bar-->
                     <nav class="navigation-bar">
-                        <a href="aboutus.html">Nosotros</a>
-                        <a href="advertisements.html">Anuncios</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="contact.html">Contacto</a>
+                        <a href="aboutus.php">Nosotros</a>
+                        <a href="advertisements.php">Anuncios</a>
+                        <a href="blog.php">Blog</a>
+                        <a href="contact.php">Contacto</a>
                     </nav>
                     <!-- Navigation Bar End -->
                 </div>
@@ -57,10 +57,10 @@
         <div class="container footer-container">
             <!-- Navigation Bar-->
             <nav class="navigation-bar">
-                <a href="aboutus.html">Nosotros</a>
-                <a href="advertisements.html">Anuncios</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contacto</a>
+                <a href="aboutus.php">Nosotros</a>
+                <a href="advertisements.php">Anuncios</a>
+                <a href="blog.php">Blog</a>
+                <a href="contact.php">Contacto</a>
             </nav>
             <!-- Navigation Bar End -->
         </div>

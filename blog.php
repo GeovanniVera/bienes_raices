@@ -22,10 +22,10 @@
                     <img src="build/img/dark-mode.svg" alt="dark button" class="dark-mode-btn">
                     <!-- Navigation Bar-->
                     <nav class="navigation-bar">
-                        <a href="aboutus.html">Nosotros</a>
-                        <a href="advertisements.html">Anuncios</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="contact.html">Contacto</a>
+                        <a href="aboutus.php">Nosotros</a>
+                        <a href="advertisements.php">Anuncios</a>
+                        <a href="blog.php">Blog</a>
+                        <a href="contact.php">Contacto</a>
                     </nav>
                     <!-- Navigation Bar End -->
                 </div>
@@ -50,7 +50,7 @@
                     </picture>
                 </div>
                 <div class="into-text">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Terraza en el techo de tu casa</h4>
                         <p class="meta-information">Escrto el: <span>20-10-2024</span> por <span>Admin</span></p>
                         <p>Consejo para onstruir en el techo de tu casa con los mejores materiales y ahorrando dinero
@@ -69,7 +69,7 @@
                     </picture>
                 </div>
                 <div class="into-text">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Guia para la decoracion de tu hogar</h4>
                         <p class="meta-information">Escrto el: <span>20-10-2024</span> por <span>Admin</span></p>
                         <p>Maximisa el espacio en tu hogar con esta guia. Aprende a combinar muebles y colores para
@@ -88,7 +88,7 @@
                     </picture>
                 </div>
                 <div class="into-text">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Terraza en el techo de tu casa</h4>
                         <p class="meta-information">Escrto el: <span>20-10-2024</span> por <span>Admin</span></p>
                         <p>Consejo para onstruir en el techo de tu casa con los mejores materiales y ahorrando dinero
@@ -107,7 +107,7 @@
                     </picture>
                 </div>
                 <div class="into-text">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Guia para la decoracion de tu hogar</h4>
                         <p class="meta-information">Escrto el: <span>20-10-2024</span> por <span>Admin</span></p>
                         <p>Maximisa el espacio en tu hogar con esta guia. Aprende a combinar muebles y colores para
@@ -124,10 +124,10 @@
         <div class="container footer-container">
             <!-- Navigation Bar-->
             <nav class="navigation-bar">
-                <a href="aboutus.html">Nosotros</a>
-                <a href="advertisements.html">Anuncios</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contacto</a>
+                <a href="aboutus.php">Nosotros</a>
+                <a href="advertisements.php">Anuncios</a>
+                <a href="blog.php">Blog</a>
+                <a href="contact.php">Contacto</a>
             </nav>
             <!-- Navigation Bar End -->
         </div>

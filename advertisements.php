@@ -23,10 +23,10 @@
                     <img src="build/img/dark-mode.svg" alt="dark button" class="dark-mode-btn">
                     <!-- Navigation Bar-->
                     <nav class="navigation-bar">
-                        <a href="aboutus.html">Nosotros</a>
-                        <a href="advertisements.html">Anuncios</a>
-                        <a href="blog.html">Blog</a>
-                        <a href="contact.html">Contacto</a>
+                        <a href="aboutus.php">Nosotros</a>
+                        <a href="advertisements.php">Anuncios</a>
+                        <a href="blog.php">Blog</a>
+                        <a href="contact.php">Contacto</a>
                     </nav>
                     <!-- Navigation Bar End -->
                 </div>
@@ -69,7 +69,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a href="anuncio.html" class="btn btn-orange">Ver Propiedad</a>
+                    <a href="anuncio.php" class="btn btn-orange">Ver Propiedad</a>
                 </div>
             </div>
             <!-- Fin de la card -->
@@ -101,7 +101,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a href="anuncio.html" class="btn btn-orange">Ver Propiedad</a>
+                    <a href="anuncio.php" class="btn btn-orange">Ver Propiedad</a>
                 </div>
             </div>
             <!-- Fin de la card -->
@@ -133,7 +133,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a href="anuncio.html" class="btn btn-orange">Ver Propiedad</a>
+                    <a href="anuncio.php" class="btn btn-orange">Ver Propiedad</a>
                 </div>
             </div>
             <!-- Fin de card -->
@@ -164,7 +164,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a href="anuncio.html" class="btn btn-orange">Ver Propiedad</a>
+                    <a href="anuncio.php" class="btn btn-orange">Ver Propiedad</a>
                 </div>
             </div>
             <!-- Fin de card -->
@@ -195,7 +195,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a href="anuncio.html" class="btn btn-orange">Ver Propiedad</a>
+                    <a href="anuncio.php" class="btn btn-orange">Ver Propiedad</a>
                 </div>
             </div>
             <!-- fin de card -->
@@ -226,7 +226,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a href="anuncio.html" class="btn btn-orange">Ver Propiedad</a>
+                    <a href="anuncio.php" class="btn btn-orange">Ver Propiedad</a>
                 </div>
             </div>
             <!-- Fin de la card -->
@@ -239,10 +239,10 @@
         <div class="container footer-container">
             <!-- Navigation Bar-->
             <nav class="navigation-bar">
-                <a href="aboutus.html">Nosotros</a>
-                <a href="advertisements.html">Anuncios</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contacto</a>
+                <a href="aboutus.php">Nosotros</a>
+                <a href="advertisements.php">Anuncios</a>
+                <a href="blog.php">Blog</a>
+                <a href="contact.php">Contacto</a>
             </nav>
             <!-- Navigation Bar End -->
         </div>
