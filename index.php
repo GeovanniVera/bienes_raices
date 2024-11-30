@@ -1,42 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienes Raices</title>
-    <link rel="stylesheet" href="build/css/app.css">
-</head>
-
-<body>
-    <!-- Header Start-->
-    <header class="inicio header ">
-        <div class="container header-content">
-            <!-- Bar-->
-            <div class="bar">
-                <a href="/"><img src="build/img/logo.svg" alt="image Logo" height="50px"></a>
-                <div class="mobile-menu">
-                    <img src="build/img/barras.svg" alt="menu">
-                </div>
-                <div class="right">
-                    <img src="build/img/dark-mode.svg" alt="dark button" class="dark-mode-btn">
-                    <!-- Navigation Bar-->
-                    <nav class="navigation-bar">
-                        <a href="aboutus.php">Nosotros</a>
-                        <a href="advertisements.php">Anuncios</a>
-                        <a href="blog.php">Blog</a>
-                        <a href="contact.php">Contacto</a>
-                    </nav>
-                    <!-- Navigation Bar End -->
-                </div>
-                
-            </div>
-            <!-- Bar End -->
-            <!-- title header-->
-            <h1>Venta de casas y departamentos exclusivos de Lujo</h1>
-        </div>
-    </header>
-    <!-- Header End -->
+<?php
+    require 'includes/funciones.php';
+    incluirTemplate('header',true);
+?>
     <!-- Main Page -->
     <main class="container section">
         <h2>Mas Sobre Nosotros</h2>
@@ -226,24 +191,7 @@
         </seccion>
     </div>
     <!-- Fin Testimoniales -->
-    <!-- Footer Start -->
-    <footer class="footer section">
-        <div class="container footer-container">
-            <!-- Navigation Bar-->
-            <nav class="navigation-bar">
-                <a href="aboutus.php">Nosotros</a>
-                <a href="advertisements.php">Anuncios</a>
-                <a href="blog.php">Blog</a>
-                <a href="contact.php">Contacto</a>
-            </nav>
-            <!-- Navigation Bar End -->
-        </div>
-        <p class="copyright">
-            Todos los derechos reservados 2024 &copy;
-        </p>
-    </footer>
-    <!-- Footer End -->
-    <script src="build/js/bundle.min.js"></script>
-</body>
+<?php
+    incluirTemplate('footer');
 
-</html>
+?>
