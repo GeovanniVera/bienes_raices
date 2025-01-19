@@ -1,0 +1,10 @@
+.alerta{
+    &.error {
+        background-color: red;
+    }
+
+    p{
+        color: white;
+        text-align: center;
+    }
+}

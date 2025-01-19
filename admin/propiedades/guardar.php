@@ -5,7 +5,21 @@ require '../../includes/config/database.php';
 
 //Conexion a la base de datos
 $db = conectarDB();
+
+
+
 $errores = [];
+
+
+$titulo = '';
+$precio = '';
+$imagen = '';
+$habitaciones = '';
+$estacionamiento = '';
+$wc = '';
+$id_vendedor='';
+$descripcion='';
+$creado = '';
 //Recibimos y validamos los datos
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //Titulo
@@ -15,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     //Precio
-    $precio = isset($_POST['precio']) ? $_POST['precio'] : 0.0;
+    $precio = isset($_POST['precio']) ? mysqli_real_escape_string($db, $_POST['precio']) : 0.0;
     if (empty($precio)) {
         $errores[] = "Debes añadir un precio.";
     } else if (!is_numeric($precio)) {
@@ -23,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     //imagen
+    /*
     if (isset($_POST['imagen'])) {
         if (empty($_POST['imagen'])) {
             $imagen = 'imagen.jpg';
@@ -32,9 +47,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $imagen = 'imagen.jpg';
     }
+        */
+
+    $imagen = $_FILES['imagen']; 
+    
+    if($imagen['error'] !== UPLOAD_ERR_OK){
+        $errores[] = 'La imagen es obligatoria o ocurrió un error al cargarla';
+    }
+
+    $medida = 1000 * 1000;
+
+    if($imagen['size'] > $medida){
+        $errores[] = 'El tamaño de la imagen es demasiado grande';
+    }
 
     //Habitaciones
-    $habitaciones = isset($_POST['habitaciones']) ? $_POST['habitaciones'] : 0;
+    $habitaciones = isset($_POST['habitaciones']) ?  filter_var($_POST['habitaciones'],FILTER_SANITIZE_NUMBER_INT): 0;
 
     if (empty($habitaciones)) {
         $errores[] = "Debes seleccionar el numero de habitaciones.";
@@ -42,14 +70,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errores[] = "Debes seleccionar un nuemro valido";
     }
     //WC
-    $wc = isset($_POST['wc']) ? $_POST['wc'] : 0;
+    $wc = isset($_POST['wc']) ? filter_var($_POST['wc'],FILTER_SANITIZE_NUMBER_INT) : 0;
     if (empty($wc)) {
         $errores[] = "Debes seleccionar el numero de Baños.";
     } elseif (!is_numeric($wc)) {
         $errores[] = "Debes seleccionar un nuemro valido";
     }
     //Estacionamientos
-    $estacionamiento = isset($_POST['estacionamiento']) ? $_POST['estacionamiento'] : 0;
+    $estacionamiento = isset($_POST['estacionamiento']) ? filter_var($_POST['estacionamiento'],FILTER_SANITIZE_NUMBER_INT) : 0;
     if (empty($estacionamiento)) {
         $errores[] = "Debes seleccionar el numero de estacionamientos.";
     } elseif (!is_numeric($estacionamiento)) {
@@ -66,14 +94,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     //ID
-    $id_vendedor = isset($_POST['id_vendedor']) ? $_POST['id_vendedor'] : 1;
+    $id_vendedor = isset($_POST['id_vendedor']) ? mysqli_real_escape_string($db,$_POST['id_vendedor']) : 1;
     if(empty($id_vendedor)){
         $errores[] = "Debes de seleccionar un vendedor"; 
     }elseif($id_vendedor <= 0){
         $errores[] = "Vendedor no valido";
     }
     //Descripcion
-    $descripcion = isset($_POST['descripcion']) ? trim($_POST['descripcion']) : '';
+    $descripcion = isset($_POST['descripcion']) ? mysqli_real_escape_string($db,trim($_POST['descripcion'])) : '';
     if (empty($descripcion)) {
         $errores[] = "La descripción es obligatoria.";
     } elseif (strlen($descripcion) > 255) {
@@ -92,9 +120,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 //Insertamos los datos
 
 if (empty($errores)) {
+
+    //---------------------------------Subida de Imagenes-----------------------------------
+    //creamos la carpeta
+    $carpetaImagenes = '/var/www/html/bienesraices_php/imagenes';
+
+if (!is_dir($carpetaImagenes)) {
+    mkdir($carpetaImagenes, 0777, true); 
+}
+
+//-----------------------------------Generamos el nombre  de la imagen ---------------------------------
+$nombreImagen = md5(uniqid(rand(),true)).'.jpg';
+
+
+//--------------------------------Subimos la imagen-----------------------------------
+move_uploaded_file($imagen['tmp_name'],$carpetaImagenes.'/'.$nombreImagen);
+
     $query = "insert into propiedades(titulo , precio,
-imagen ,habitaciones ,wc ,estacionamiento,creado,id_vendedor,descripcion)
-values( '$titulo' , $precio , '$imagen' , $habitaciones , $wc , $estacionamiento , '$creado' , $id_vendedor, '$descripcion'); ";
+imagen ,habitaciones ,wc ,estacionamientos,creado,id_vendedor,descripcion)
+values( '$titulo' , $precio , '$nombreImagen' , $habitaciones , $wc , $estacionamiento , '$creado' , $id_vendedor, '$descripcion'); ";
 
     $resultado = mysqli_query($db, $query);
 
@@ -104,5 +148,7 @@ values( '$titulo' , $precio , '$imagen' , $habitaciones , $wc , $estacionamiento
     }
 }else{
     $errores_serializados = urlencode(serialize($errores));
-    header("location: /bienesraices_php/admin/propiedades/crear.php?errores=$errores_serializados");
+    $valores_serializados = urlencode(serialize($_POST));
+    header("location: /bienesraices_php/admin/propiedades/crear.php?errores=$errores_serializados&valores=$valores_serializados");
+
 }

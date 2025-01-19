@@ -1,10 +1,16 @@
 <?php
 require '../../includes/funciones.php';
+require '../../includes/config/database.php';
+$db = conectarDB();
+$consulta_ven = 'select * from vendedores';
+$resultado = mysqli_query($db,$consulta_ven);
 // echo __DIR__;
 incluirTemplate('header');
 
-isset($_GET['errores']);
-$errores = unserialize(urldecode($_GET['errores']));
+if (isset($_GET['errores'])) {
+    $errores = unserialize(urldecode($_GET['errores']));
+}
+    $valores = isset($_GET['valores']) ? unserialize(urldecode($_GET['valores'])) : [];
 ?>
 
 <main class="container section">
@@ -17,44 +23,108 @@ $errores = unserialize(urldecode($_GET['errores']));
         </div>
     <?php endforeach;?>
 
-    <form action="/bienesraices_php/admin/propiedades/guardar.php" method="post" class="formulario">
+    <form 
+    action="/bienesraices_php/admin/propiedades/guardar.php" 
+    method="post" 
+    class="formulario"
+    enctype="multipart/form-data">
         <fieldset>
             <legend>Informacion General de la propiedad</legend>
 
-            <input type="text" name="titulo" id="titulo" placeholder="Titulo de la propiedad:" autofocus pattern="[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+">
+            <input 
+            type="text"
+            name="titulo" 
+            id="titulo" 
+            placeholder="Titulo de la propiedad:" 
+            autofocus pattern="[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+"
+            value="<?php echo htmlspecialchars($valores['titulo'] ?? ''); ?>">
 
-            <input type="number" step="0.01" name="precio" id="precio" placeholder="Precio de la propiedad:" pattern="^\d+(\.\d{1,2})?$"
-                title="Ingresa un precio válido (solo números, con hasta dos decimales)">
+            <input 
+            type="number" 
+            step="0.01" 
+            name="precio" 
+            id="precio" 
+            placeholder="Precio de la propiedad:" 
+            pattern="^\d+(\.\d{1,2})?$"
+            title="Ingresa un precio válido (solo números, con hasta dos decimales)"
+            value="<?php echo htmlspecialchars($valores['precio'] ?? ''); ?>"
+            >
 
             <label for="imagen">Imagen</label>
-            <input type="file" accept="image/jpeg, image/png" name="imagen" id="imagen">
+            <input 
+            type="file" 
+            accept="image/jpeg, image/png" 
+            name="imagen" 
+            id="imagen"
+            >
+
 
             <label for="descripcion">Descripcion:</label>
-            <textarea name="descripcion" id="descripcion" pattern="[a-zA-ZÁÉÍÓÚáéíóúÑñ0-9\s]+"
-                title="La descripción solo puede contener letras, números y espacios."></textarea>
+            <textarea 
+            name="descripcion" 
+            id="descripcion" 
+            pattern="[a-zA-ZÁÉÍÓÚáéíóúÑñ0-9\s]+"
+            title="La descripción solo puede contener letras, números y espacios."
+            >
+            <?php echo htmlspecialchars($valores['descripcion'] ?? ''); ?>
+            </textarea>
         </fieldset>
         <fieldset>
             <legend>Informacion Propiedad:</legend>
 
-            <input type="number" name="habitaciones" id="habitaciones" min="0" placeholder="Numero de Habitaciones: " pattern="[1-9]{1}"
-                title="Solo se permite un número del 1 al 9.">
+            <input 
+            type="number" 
+            name="habitaciones" 
+            id="habitaciones" 
+            min="0" 
+            placeholder="Numero de Habitaciones: " 
+            pattern="[1-9]{1}"
+            title="Solo se permite un número del 1 al 9."
+            value="<?php echo htmlspecialchars($valores['habitaciones'] ?? ''); ?>"
+            >
 
-            <input type="number" name="wc" id="wc" min="0" placeholder="Numero de Baños" pattern="[1-9]{1}"
-                title="Solo se permite un número del 1 al 9.">
+            <input 
+            type="number" 
+            name="wc" 
+            id="wc" 
+            min="0" 
+            placeholder="Numero de Baños" 
+            pattern="[1-9]{1}"
+            title="Solo se permite un número del 1 al 9."
+            value="<?php echo htmlspecialchars($valores['wc'] ?? ''); ?>"
+            >
 
-            <input type="number" name="estacionamiento" id="estacionamiento" min="0" placeholder="Numero de Estacionamientos: " pattern="[1-9]{1}"
-                title="Solo se permite un número del 1 al 9.">
+            <input 
+            type="number" 
+            name="estacionamiento" 
+            id="estacionamiento" 
+            min="0" 
+            placeholder="Numero de Estacionamientos: " 
+            pattern="[1-9]{1}"
+            title="Solo se permite un número del 1 al 9."
+            value="<?php echo htmlspecialchars($valores['estacionamiento'] ?? ''); ?>"
+            >
 
             <label for="fecha">Fecha:</label>
-            <input type="date" name="creado" id="fecha">
+            <input 
+            type="date" 
+            name="creado" 
+            id="fecha"
+            value="<?php echo htmlspecialchars($valores['creado'] ?? ''); ?>"
+            >
 
         </fieldset>
         <fieldset>
             <legend>Vendedor</legend>
             <select name="id_vendedor" id="vendedor">
-                <option value="" disabled selected>---Seleccionar Vendedor---</option>
-                <option value="1">Geovanni Vera</option>
-                <option value="2">Elizabeth Vera</option>
+                <option value="" disabled selected>---Seleccione su vendedor---</option>
+                <?php
+                    while($row = mysqli_fetch_assoc($resultado)):
+                ?>
+                    <option <?php echo ($valores['id_vendedor'] ?? '') == $row['id'] ? 'selected' : ''; ?>  value="<?php echo $row['id']?>"><?php echo ucfirst($row['nombre'])." ".ucfirst($row['apellido']) ?></option>
+                <?php
+                    endwhile;
+                ?>
             </select>
         </fieldset>
         <input type="submit" value="Crear Propiedad" class="btn btn-orange-inline">
