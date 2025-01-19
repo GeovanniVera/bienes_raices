@@ -16,7 +16,7 @@
     </footer>
     <!-- Footer End -->
     <!-- Script JS -->
-    <script src="build/js/bundle.min.js"></script>
+    <script src="/bienesraices_php/build/js/bundle.min.js"></script>
 </body>
 
 </html>

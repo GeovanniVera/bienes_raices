@@ -1,5 +1,6 @@
 <?php
-    INCLUDE 'includes/templates/header.php';
+    require 'includes/funciones.php';
+    incluirTemplate('header');
 ?>
     <!-- Main Page -->
     <main class="container section focused-content">
@@ -29,6 +30,6 @@
         </div>
     </main>
     <!-- Main Page End-->
-    <?php
-    include 'includes/templates/footer.php';
+<?php
+    incluirTemplate('footer');
 ?>
